@@ -17,6 +17,10 @@ use Intervention\Image\Image;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('lien-he', 'HomeController@contact')->name('contact');
+Route::get('gioi-thieu/{post}','PostController@show')->name('gioithieu');
+
+Route::resource('posts','PostController');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/','AdminController@dashboard')->name('dashboard');

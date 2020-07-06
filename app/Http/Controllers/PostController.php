@@ -46,7 +46,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post->with(['post_details'=>function($query) {
+            $query->where('language','like',app()->getLocale());
+        }]);
+        return view('classic.baiviet',compact('post'));
     }
 
     /**

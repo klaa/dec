@@ -11,6 +11,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    // require('bs-dropdown-hover.js');
 } catch (e) {}
 
 /**

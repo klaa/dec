@@ -2,7 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Roboto Condensed','Quicksand','Open Sans', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -17,3 +17,10 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$white-text: #fefefe;
+$dark: #333;
+$gray: #c4c4c4;
+$link-color: #134874;
+$body-color: #111;
+$link-hover-color:          lighten($link-color,20%);
+$link-hover-decoration:     none !default;

@@ -58,11 +58,13 @@ class PostController extends Controller
         $post->__construct($request->only(['category_id','alias' ,'published','user_id','post_type','is_featured','ordering']));
         if($post->save()) {
             $post->post_details()->create($request->only(['name','body','desc','keywords','title','language']));
-            foreach ($request->get('medialist') as $key => $value) {
-                $media = new Media;
-                $media->link = $value;
-                $post->media()->save($media);
-            }
+            if(!empty($request->get('medialist'))) {
+                foreach ($request->get('medialist') as $key => $value) {
+                    $media = new Media;
+                    $media->link = $value;
+                    $post->media()->save($media);
+                }
+            }            
             $msg = __('admin.update_post_success');
             $msg_type = 'success';
         }else{
@@ -120,12 +122,14 @@ class PostController extends Controller
         if($post->update($request->only(['category_id','alias', 'published','is_featured','ordering']))) {
             $post->post_details()->update($request->only(['name','body','desc','keywords','title','language']));
             
-            $post->media()->delete();
-            foreach ($request->get('medialist') as $key => $value) {
-                $media = new Media;
-                $media->link = $value;
-                $post->media()->save($media);
-            }
+            if(!empty($request->get('medialist'))) {
+                $post->media()->delete();
+                foreach ($request->get('medialist') as $key => $value) {
+                    $media = new Media;
+                    $media->link = $value;
+                    $post->media()->save($media);
+                }
+            }            
             
             $msg = __('admin.update_post_success');
             $msg_type = 'success';
