@@ -12,7 +12,15 @@
             </div>  
           </div>
           <div class="col-md-4"></div>
-          <div class="col-md-4"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <div class="visit-info p-2">
+              <h5 class="mb-1 text-center">Lượt truy cập</h5>
+              <p class="m-0 d-flex" style="justify-content: space-between;"><span>Tổng số:</span> <span class="totalvisit">857.853.431</span></p>
+              <p class="m-0 d-flex" style="justify-content: space-between;"><span>Hôm qua:</span> <span class="visityesterday">6831</span></p>
+              <p class="m-0 d-flex" style="justify-content: space-between;"><span>Đang online:</span> <span class="visitnow">182</span></p>              
+            </div> 
+          </div>
         </div>
       </div>        
     </div>
