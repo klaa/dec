@@ -15,9 +15,11 @@
   </head>
   <body>
     
-    @include('classic.header')
+    <div class="sticky-top">
+      @include('classic.header')
 
-    @include('classic.navigation')
+      @include('classic.navigation')
+    </div>
 
     @yield('slide')
 
@@ -35,6 +37,8 @@
         </div>
       </div>
     </section>
+    
+    @include('classic.doitac')
 
     @include('classic.footer')
 

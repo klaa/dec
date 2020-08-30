@@ -18,11 +18,11 @@
             </div>
             <div class="form-group">
                 <label for="frmPhone">Điện thoại</label>
-                <input type="text" id="frmPhone" name="name" class="form-control">
+                <input type="text" id="frmPhone" name="phone" class="form-control">
             </div>
             <div class="form-group">
                 <label for="frmMessage">Nội dung</label>
-                <textarea name="name" class="form-control" row="6"></textarea>
+                <textarea name="message" class="form-control" row="6"></textarea>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-outline-success">Gửi tin nhắn</button>
@@ -39,27 +39,12 @@
                     <p>Địa chỉ: Phường Tân Thịnh - tp Thái Nguyên - Tỉnh Thái Nguyên.</p>
                 </div>
                 <div class="col-md-8">
-                    <div id="ttdttxmap"></div>
+                    <div id="ttdttxmap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3709.9474544089635!2d105.80957561480697!3d21.58797407382838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313527aacf5b4b9b%3A0x7787e7dac2d88b22!2zVHJ1bmcgdMOibSDEkMOgbyB04bqhbyBU4burIHhhIMSQ4bqhaSBI4buNYyBUaMOhaSBOZ3V5w6pu!5e0!3m2!1svi!2s!4v1596511385443!5m2!1svi!2s" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQAGv-AmIr0j3rSKvKNtjnJ36FcK-w8C8&callback=initMap">
-    </script>
-    <script type="text/javascript">
-        function initMap() {
-        // The location of Uluru
-        var uluru = {lat: 21.587831996625212, lng: 105.81066681180322};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-            document.getElementById('ttdttxmap'), {zoom: 16, center: uluru});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: uluru, map: map});
-        }
-    </script>
-@endpush

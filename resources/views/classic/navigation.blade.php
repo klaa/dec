@@ -5,6 +5,11 @@
         <button class="d-md-none btn rounded-0 btn-white p-1"><img class="navicon" src="{{ asset('images/menu.png') }}" alt="Menu đại học trực tuyến"></button>
       </div>        
       <ul class="nav d-none d-md-flex bg-primary">
+        <li class="nav-item d-md-none">
+          <div class="d-flex closewrap p-1">
+            <div class="closemenu"><img src="{{ asset('images/close.png') }}" alt="Dong menu" class="img-fluid"></div>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{ route('home') }}">{{ __('menu.trangchu') }}</a>
         </li>
@@ -75,7 +80,7 @@
         <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">{{ __('menu.lienhe') }}</a></li>
       </ul>
       <div class="searchform ml-auto mr-1">
-        <form action="#" method="POST">
+        <form action="{{ route('search') }}" method="POST">
           @csrf
           <div class="input-group input-group-sm mt-1">
             <input type="text" placeholder="Tim kiem" name="searchkey" class="form-control">

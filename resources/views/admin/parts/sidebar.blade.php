@@ -6,7 +6,7 @@
       <div class="sidebar-brand-icon">
           <i class="fas fa-school"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">{{ config('app.name') }} <sup>0.3</sup></div>
+      <div class="sidebar-brand-text mx-3">TTĐTTX ĐHTN <sup>1.0</sup></div>
     </a>
 
     <!-- Divider -->
@@ -76,6 +76,41 @@
       </div>
     </li>
 
+    {{-- Certification management --}}
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudent" aria-expanded="true" aria-controls="collapseStudent">
+        <i class="fas fa-fw fa-graduation-cap"></i>
+        <span>{{ __('admin.student_management') }}</span>
+      </a>
+      <div id="collapseStudent" class="collapse" aria-labelledby="headingStudent" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">{{ __('admin.student_management') }}:</h6>
+          <a class="collapse-item" href="{{ route('admin.students.index') }}">{{ __('admin.student_list') }}</a>
+          <a class="collapse-item" href="{{ route('admin.students.create') }}">{{ __('admin.student_create') }}</a>
+          <h6 class="collapse-header">{{ __('admin.student_diploma') }}:</h6>
+          <a class="collapse-item" href="{{ route('admin.students.diploma') }}">{{ __('admin.student_diploma') }}</a>
+          <h6 class="collapse-header">{{ __('admin.student_score') }}:</h6>
+          <a class="collapse-item" href="{{ route('admin.students.score') }}">{{ __('admin.student_score') }}</a>
+        </div>
+      </div>
+    </li>
+
+    {{-- Partner management --}}
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartner" aria-expanded="true" aria-controls="collapsePartner">
+        <i class="fas fa-fw fa-handshake"></i>
+        <span>{{ __('admin.partner_management') }}</span>
+      </a>
+      <div id="collapsePartner" class="collapse" aria-labelledby="headingPartner" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">{{ __('admin.partner_management') }}:</h6>
+          <a class="collapse-item" href="{{ route('admin.partners.index') }}">{{ __('admin.partner_list') }}</a>
+          <a class="collapse-item" href="{{ route('admin.partners.create') }}">{{ __('admin.partner_create') }}</a>
+        </div>
+      </div>
+    </li>
+
+    @if(config('app.menu_enabled'))
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="true" aria-controls="collapseMenu">
         <i class="fas fa-fw fa-bars"></i>
@@ -93,6 +128,7 @@
         </div>
       </div>
     </li>
+    @endif
 
     @if(config('app.shop_enabled'))
     <li class="nav-item">

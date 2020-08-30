@@ -1,6 +1,6 @@
 @extends('classic.general')
 
-@section('pagetitle', 'Trung tâm Đào tạo Từ xa - Đại học Thái Nguyên')
+@section('pagetitle', $post->post_details->first()->name . ' - Trung tâm Đào tạo từ xa - ĐHTN' )
 
 @section('maincontent')
   <div class="tab">

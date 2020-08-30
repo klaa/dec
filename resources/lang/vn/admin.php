@@ -89,6 +89,9 @@ return [
     'media_add'             => 'Thêm media',
     'select'                => 'Chọn',
     'upload'                => 'Upload',
+    'image'                 => 'Hình ảnh',
+    'link'                  => 'Đường dẫn',
+    'description'           => 'Mô tả',
     
     'shop_settings'         => 'Cài đặt cửa hàng',
     'settings'              => 'Cài đặt',
@@ -111,6 +114,12 @@ return [
     'menu_category_create'  => 'Tạo danh mục menu mới',
     'menu_list'             => 'Danh sách menu',
     'menu_create'           => 'Tạo menu mới',
+    'partner_management'    => 'Quản lý đối tác',
+    'partner_list'          => 'Danh sách',
+    'partner_create'        => 'Tạo đối tác mới',
+    'update_partner_success'=> 'Cập nhật đối tác thành công!',
+    'partner_deleted'       => 'Xóa đối tác thành công!',
+    'partner_edit'          => 'Chỉnh sửa đối tác',
     
     'paginate_first'        => '<<',
     'paginate_last'         => '>>',
@@ -125,5 +134,11 @@ return [
     'datatable_of'          => 'trong',
     'no_data'               => 'Không có dữ liệu',
     'processing'            => 'Đang xử lý...',
+
+    'student_management'    => 'Quản lý sinh viên',
+    'student_list'          => 'Danh sách sinh viên',
+    'student_create'        => 'Tạo sinh viên mới',
+    'student_diploma'       => 'Bằng tốt nghiệp',
+    'student_score'         => 'Điểm thi',
 
 ];

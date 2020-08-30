@@ -19,6 +19,11 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('lien-he', 'HomeController@contact')->name('contact');
 Route::get('gioi-thieu/{post}','PostController@show')->name('gioithieu');
+Route::post('tim-kiem', 'SearchController@search')->name('search');
+Route::get('tim-kiem/{keyword}', 'SearchController@result')->name('result');
+
+Route::post('tvts', 'ContactController@tvts')->name('tvts');
+Route::post('lien-he','ContactController@contact')->name('contact');
 
 Route::resource('posts','PostController');
 
@@ -61,6 +66,18 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
         Route::get('datatable','MenuCategoryController@getDatatable')->name('datatable');
         Route::any('/{post}/publish','MenuCategoryController@publish')->name('publish');
     });
+
+    Route::prefix('partners')->name('partners.')->group(function() {
+        Route::get('datatable','PartnerController@getDatatable')->name('datatable');
+        Route::any('/{partner}/publish','PartnerController@publish')->name('publish');
+    });
+
+    Route::prefix('students')->name('students.')->group(function() {
+        Route::get('datatable','StudentController@getDatatable')->name('datatable');
+        Route::get('diploma','StudentController@index')->name('diploma');
+        Route::get('score','StudentController@index')->name('score');
+        Route::any('/{student}/publish','StudentController@publish')->name('publish');
+    });
     
     // Resource shoud be placed behind static
     Route::resource('users','UserController');    
@@ -71,6 +88,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
     Route::resource('posts','PostController');        
     Route::resource('products','ProductController');        
     Route::resource('menucategories','MenuCategoryController');        
+    Route::resource('partners','PartnerController');        
+    Route::resource('students','StudentController');        
 });
 
 

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreatePostDetailsTable extends Migration
 {
@@ -25,6 +26,9 @@ class CreatePostDetailsTable extends Migration
 
             $table->primary(['post_id','language']);
         });
+
+        DB::statement('ALTER TABLE post_details ADD FULLTEXT `post_fts_body` (`body`)');
+        DB::statement('ALTER TABLE post_details ADD FULLTEXT `post_fts_name` (`name`)');
     }
 
     /**

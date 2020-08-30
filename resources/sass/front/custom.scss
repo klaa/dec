@@ -12,6 +12,7 @@
 .bg-primary {background-image: linear-gradient(to bottom right,$blue,darken($blue,20%));}
 .bg-md-primary {background-color: transparent;}
 #ttdttxmap {height: 300px; width:100%;}
+.closewrap {justify-content: flex-end;}
 
 @media (min-width: 768px) {
     #mainnav .nav {position: initial;overflow: unset;}
