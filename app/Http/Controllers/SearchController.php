@@ -48,8 +48,8 @@ class SearchController extends Controller
         $key = $this->fullTextWildcards($keyword);
         $items = Post::whereHas('post_details',function($q) use ($key) {
             $q->whereRaw("((MATCH (name) AGAINST (? IN BOOLEAN MODE)) > 0 OR (MATCH (body) AGAINST (? IN BOOLEAN MODE)) > 0)",[$key,$key]);
-        })->paginate($numberOfItems);
+        })->with('post_details','media')->paginate($numberOfItems);
         // $items = PostDetail::whereRaw("((MATCH (name) AGAINST (? IN BOOLEAN MODE)) > 0 OR (MATCH (body) AGAINST (? IN BOOLEAN MODE)) > 0)",[$key,$key])->orderByRaw("(MATCH (name) AGAINST (? IN BOOLEAN MODE)) ASC, (MATCH (body) AGAINST (? IN BOOLEAN MODE)) ASC",[$key,$key])->paginate($numberOfItems);
-        dd($items);
+        return view('classic.search',compact('items','keyword'));        
     }
 }
