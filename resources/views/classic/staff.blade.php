@@ -18,10 +18,21 @@
                             <div class="col-3"><img class="img-fluid" src="{{ empty($item->image)?'https://image.flaticon.com/icons/svg/906/906175.svg':'http://mysite.tnu.edu.vn/'.$item->image }}" alt="{{ $item->name }}"></div>
                             <div class="col-9">
                                 <h5>{{ $item->name }}</h5>
-                                <p class="mb-0">Học vị: {{ $item->hocvi }}</p>
-                                <p class="mb-0">Chức vụ: {{ $item->chucvu }}</p>
-                                <p class="mb-0">Điện thoại: {{ $item->tel }}</p>
-                                <p class="mb-0">Địa chỉ: {{ $item->diachi }}</p>
+                                @if ($item->hocvi)
+                                    <p class="mb-0">Học vị: {{ $item->hocvi }}</p>
+                                @endif
+                                
+                                @if ($item->chucvu)
+                                    <p class="mb-0">Chức vụ: {{ $item->chucvu }}</p>
+                                @endif
+
+                                @if ($item->tel)
+                                    <p class="mb-0">Điện thoại: {{ $item->tel }}</p>
+                                @endif
+
+                                @if ($item->diachi)
+                                    <p class="mb-0">Địa chỉ: {{ $item->diachi }}</p>
+                                @endif
                             </div>
                         </div>
                     </div>    
