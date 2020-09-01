@@ -15,12 +15,13 @@
                 <div class="mb-2 col-6">
                     <div class="item border">
                         <div class="row">
-                            <div class="col-3"><img class="img-fluid" src="{{ empty($item->image)?'https://image.flaticon.com/icons/svg/906/906175.svg':'http://mysite.tnu.edu.vn/'.$item->image }}" alt="{{ $item->ft_name }}"></div>
+                            <div class="col-3"><img class="img-fluid" src="{{ empty($item->image)?'https://image.flaticon.com/icons/svg/906/906175.svg':'http://mysite.tnu.edu.vn/'.$item->image }}" alt="{{ $item->name }}"></div>
                             <div class="col-9">
                                 <h5>{{ $item->name }}</h5>
-                                <p class="mb-0">{{ $item->hocvi }}</p>
-                                <p class="mb-0">{{ $item->chucvu }}</p>
-                                <p class="mb-0">{{ $item->diachi }}</p>
+                                <p class="mb-0">Học vị: {{ $item->hocvi }}</p>
+                                <p class="mb-0">Chức vụ: {{ $item->chucvu }}</p>
+                                <p class="mb-0">Điện thoại: {{ $item->tel }}</p>
+                                <p class="mb-0">Địa chỉ: {{ $item->diachi }}</p>
                             </div>
                         </div>
                     </div>    
