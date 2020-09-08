@@ -70,7 +70,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.bacongkhai') }}</a>
           <ul class="dropdown-menu bg-md-primary">
-            <li><a href="#" class="dropdown-item">{{ __('menu.doingucanbo') }}</a></li>
+            <li><a href="{{ route('staff') }}" class="dropdown-item">{{ __('menu.doingucanbo') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.congkhaitheott36') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.doingugiaovien') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.cosovatchat') }}</a></li>

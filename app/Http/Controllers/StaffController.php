@@ -13,6 +13,7 @@ class StaffController extends Controller
                     ->join('mvup0_users','mvup0_mysite_giaovien.user_id','=','mvup0_users.id','inner')
                     ->whereRaw("mvup0_mysite_giaovien.user_id IN (SELECT user_id FROM mvup0_mysite_khoa_giaovien WHERE khoa_id=20)")
                     ->orderBy('mvup0_mysite_giaovien.ordering','desc')
+                    ->orderBy('mvup0_mysite_giaovien.image','desc')
                     ->paginate($numberOfItems);
         // dd($items);
         return view('classic.staff',compact('items'));

@@ -15,61 +15,18 @@
     <h3 class="tab-header">Đào tạo</h3>
     <div class="tab-body">
       <!-- Đổ danh sách bài viết -->
-      <div class="row mb-3">
-        <div class="col-4 col-md-3">
-          <a href="#"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" alt="anh demo"></a>
+      @foreach ($items as $item)
+        <div class="row mb-3">
+          <div class="col-4 col-md-3">
+            <a href="{{ route('daotao',$item->alias) }}"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" title="{{ $item->post_details->first()->name }}" alt="{{ $item->post_details->first()->name }}"></a>
+          </div>
+          <div class="col-8 col-md-9">
+            <h5><a href="{{ route('daotao',$item->alias) }}">{{ $item->post_details->first()->name }}</a></h5>
+            <p class="d-none d-md-block">{{ Str::words(strip_tags($item->post_details->first()->body) , 50, '...') }}</p>
+            {{-- <p class="d-none d-md-block">{{ $item->category->category_details->first()->name }}</p> --}}
+          </div>
         </div>
-        <div class="col-8 col-md-9">
-          <h5><a href="#">Từ tháng 3, bằng tốt nghiệp không còn ghi "chính quy", "tại chức"</a></h5>
-          <p class="d-none d-md-block">Bộ GD-ĐT vừa ban hành Thông tư quy định nội dung chính ghi trên văn bằng và phụ lục văn bằng giáo dục đại học.Thông tư này sẽ có hiệu lực từ ngày 1/3/2020.</p>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-4 col-md-3">
-          <a href="#"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" alt="anh demo"></a>
-        </div>
-        <div class="col-8 col-md-9">
-          <h5><a href="#">Từ tháng 3, bằng tốt nghiệp không còn ghi "chính quy", "tại chức"</a></h5>
-          <p class="d-none d-md-block">Bộ GD-ĐT vừa ban hành Thông tư quy định nội dung chính ghi trên văn bằng và phụ lục văn bằng giáo dục đại học.Thông tư này sẽ có hiệu lực từ ngày 1/3/2020.</p>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-4 col-md-3">
-          <a href="#"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" alt="anh demo"></a>
-        </div>
-        <div class="col-8 col-md-9">
-          <h5><a href="#">Từ tháng 3, bằng tốt nghiệp không còn ghi "chính quy", "tại chức"</a></h5>
-          <p class="d-none d-md-block">Bộ GD-ĐT vừa ban hành Thông tư quy định nội dung chính ghi trên văn bằng và phụ lục văn bằng giáo dục đại học.Thông tư này sẽ có hiệu lực từ ngày 1/3/2020.</p>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-4 col-md-3">
-          <a href="#"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" alt="anh demo"></a>
-        </div>
-        <div class="col-8 col-md-9">
-          <h5><a href="#">Từ tháng 3, bằng tốt nghiệp không còn ghi "chính quy", "tại chức"</a></h5>
-          <p class="d-none d-md-block">Bộ GD-ĐT vừa ban hành Thông tư quy định nội dung chính ghi trên văn bằng và phụ lục văn bằng giáo dục đại học.Thông tư này sẽ có hiệu lực từ ngày 1/3/2020.</p>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-4 col-md-3">
-          <a href="#"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" alt="anh demo"></a>
-        </div>
-        <div class="col-8 col-md-9">
-          <h5><a href="#">Từ tháng 3, bằng tốt nghiệp không còn ghi "chính quy", "tại chức"</a></h5>
-          <p class="d-none d-md-block">Bộ GD-ĐT vừa ban hành Thông tư quy định nội dung chính ghi trên văn bằng và phụ lục văn bằng giáo dục đại học.Thông tư này sẽ có hiệu lực từ ngày 1/3/2020.</p>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-4 col-md-3">
-          <a href="#"><img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="img-fluid" alt="anh demo"></a>
-        </div>
-        <div class="col-8 col-md-9">
-          <h5><a href="#">Từ tháng 3, bằng tốt nghiệp không còn ghi "chính quy", "tại chức"</a></h5>
-          <p class="d-none d-md-block">Bộ GD-ĐT vừa ban hành Thông tư quy định nội dung chính ghi trên văn bằng và phụ lục văn bằng giáo dục đại học.Thông tư này sẽ có hiệu lực từ ngày 1/3/2020.</p>
-        </div>
-      </div>
-      
+      @endforeach      
       <!-- Kết thúc danh sach bài viết -->
     </div>
   </div>

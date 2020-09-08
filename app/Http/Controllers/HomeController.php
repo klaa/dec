@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('classic.index');
+        $numOfItems = 5;
+        $items = Post::with('post_details','media','category','category.category_details')->where('category_id','=','1')->paginate($numOfItems);
+        return view('classic.index',compact('items'));
     }
     public function contact()
     {

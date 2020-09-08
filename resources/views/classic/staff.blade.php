@@ -15,9 +15,13 @@
                 <div class="mb-2 col-md-6">
                     <div class="item border">
                         <div class="row">
-                            <div class="col-3"><a class="text-primary" target="_blank" href="http://mysite.tnu.edu.vn/vi/{{ $item->alias }}"><img class="img-fluid" src="{{ empty($item->image)?'https://image.flaticon.com/icons/svg/906/906175.svg':'http://mysite.tnu.edu.vn/'.$item->image }}" alt="{{ $item->name }}"></a></div>
+                            <div class="col-3 pr-0"><a class="text-primary" target="_blank" href="http://mysite.tnu.edu.vn/vi/{{ $item->alias }}"><img class="img-fluid" src="{{ empty($item->image)?'https://image.flaticon.com/icons/svg/906/906175.svg':'http://mysite.tnu.edu.vn/'.$item->image }}" alt="{{ $item->name }}"></a></div>
                             <div class="col-9">
                                 <h5 class="mb-0"><a class="text-primary" target="_blank" href="http://mysite.tnu.edu.vn/vi/{{ $item->alias }}">{{ $item->name }}</a></h5>
+                                @if ($item->chucdanh)
+                                    <p class="mb-0">Chức danh: {{ $item->chucdanh }}</p>
+                                @endif
+
                                 @if ($item->hocvi)
                                     <p class="mb-0">Học vị: {{ $item->hocvi }}</p>
                                 @endif
@@ -39,7 +43,9 @@
                 </div>    
             @endforeach
         </div>
-        {{ $items->links() }}
+        <div class="d-flex justify-content-center mt-3">
+            {{ $items->links() }}
+        </div>
     </div>
 </div>
 @endsection

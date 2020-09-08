@@ -1,5 +1,6 @@
 <?php
 
+use App\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([GroupSeeder::class,PermissionSeeder::class,UserSeeder::class,PostSeeder::class]);        
+        $this->call([GroupSeeder::class,PermissionSeeder::class,UserSeeder::class,CategorySeeder::class,PostSeeder::class]);        
     }
 }
