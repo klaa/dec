@@ -23,6 +23,8 @@
 
     @yield('slide')
 
+    @yield('nganhdaotao')
+
     @yield('khaigiang')
 
     <section id="maincontent" class="my-2">

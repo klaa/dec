@@ -55,18 +55,14 @@
                 <label for="tvtsnganh">Ngành học</label>
                 <select class="form-control" name="tvtsnganh" id="tvtsnganh">
                   <option value="0">-- Chọn ngành học --</option>
-                  <optgroup label="Hệ E-learning">
-                    <option value="Luật kinh tế">Luật kinh tế</option>
-                    <option value="Kế toán">Kế toán</option>
-                    <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
-                    <option value="Công nghệ thông tin">Công nghệ thông tin</option>
-                  </optgroup>
-                  <optgroup label="Hệ truyền thống">
-                    <option value="Luật">Luật</option>
-                    <option value="Quản lý đất đai">Quản lý đất đai</option>
-                    <option value="Khoa học thư viện">Khoa học thư viện</option>
-                    <option value="Ngôn ngữ Anh">Ngôn ngữ Anh</option>
-                  </optgroup>
+                  <option value="Luật">Luật</option>
+                  <option value="Luật kinh tế">Luật kinh tế</option>
+                  <option value="Kế toán">Kế toán</option>
+                  <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
+                  <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                  <option value="Quản lý đất đai">Quản lý đất đai</option>
+                  <option value="Khoa học thư viện">Khoa học thư viện</option>
+                  <option value="Ngôn ngữ Anh">Ngôn ngữ Anh</option>
                 </select>                
               </div>
               <div class="form-group">

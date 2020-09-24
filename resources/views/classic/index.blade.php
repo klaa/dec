@@ -10,6 +10,10 @@
   @include('classic.khaigiang')     
 @endsection
 
+@section('nganhdaotao')
+  @include('classic.nganhdaotao')
+@endsection
+
 @section('maincontent')
   <div class="tab">
     <h3 class="tab-header">Đào tạo</h3>
