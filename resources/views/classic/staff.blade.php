@@ -44,7 +44,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center mt-3">
-            {{ $items->links() }}
+            {{ $items->onEachSide(1)->links() }}
         </div>
     </div>
 </div>
