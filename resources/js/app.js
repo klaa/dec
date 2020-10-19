@@ -16,7 +16,7 @@ var equalHeights = function() {
     });
 };
 
-jQuery(document).ready(function() {
+jQuery(function() {
     jQuery('.mobilenavbtn').on('click','button',function() {
         jQuery('#mainnav .nav').toggleClass('d-none d-block');
     });

@@ -141,4 +141,8 @@ return [
     'student_diploma'       => 'Bằng tốt nghiệp',
     'student_score'         => 'Điểm thi',
 
+    'attachment_name'       => 'Tên file đính kèm',
+    'attachment_file'       => 'File đính kèm',
+    'attachment_add'        => 'Thêm file đính kèm',
+
 ];

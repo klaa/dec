@@ -11,17 +11,41 @@
             });
             $('#button-image').click(function(event) {
                 event.preventDefault();
+                inputId = 'media';
                 window.open('/file-manager/fm-button', '{{ __("admin.media_manager") }}', 'width=800,height=600,menubar=0,scrollbars=0,resizable=0,location=0,toolbar=0,titlebar=0');
             });
             $('#mediaList').on('click','.deleteMedia',function() {
                 $(this).parent().remove();
-            });    
+            });
+            jQuery('#attachmentFile').click(function(event) {
+                event.preventDefault();
+                inputId = 'attachment';
+                window.open('/file-manager/fm-button', '{{ __("admin.media_manager") }}', 'width=800,height=600,menubar=0,scrollbars=0,resizable=0,location=0,toolbar=0,titlebar=0');
+            });
+            jQuery('#attachmentList').on('click','.deleteAttachment',function() {
+                jQuery(this).parent().parent().remove();
+            });     
         });
 
+        let attachmentCount = 1;
+        let inputId = '';
         function fmSetLink($url) {
             var link = $url.replace('{{ config("app.url") }}/','');
-            document.getElementById('mediaAdd').value = link;
-            $('#mediaList').prepend('<div class="col-3 mb-2"><img src="'+$url+'" class="img-fluid" /><input type="hidden" name="medialist[]" value="'+link+'"><button type="button" class="deleteMedia btn btn-sm btn-danger mt-1 btn-block"><i class="fas fa-trash"></i> {{ __("admin.delete") }}</button>  </div>');            
+            switch(inputId) {
+                case 'media':
+                    jQuery('#mediaList').prepend('<div class="col-3 mb-2"><img src="'+$url+'" class="img-fluid" /><input type="hidden" name="medialist[]" value="'+link+'"><button type="button" class="deleteMedia btn btn-sm btn-danger mt-1 btn-block"><i class="fas fa-trash"></i> {{ __("admin.delete") }}</button>  </div>'); 
+                    break;
+                case 'attachment':
+                    var aName = jQuery('#attachmentName').val();
+                    if(aName!=='') {
+                        jQuery('#attachmentName').val("");         
+                    }else{
+                        aName = $url;
+                    }
+                    jQuery('#attachmentList').prepend('<div class="row"><input type="hidden" name="attachmentlist['+attachmentCount+'][link]" value="'+$url+'"><input type="hidden" name="attachmentlist['+attachmentCount+'][name]" value="'+aName+'"><div class="col-10 mb-2"><a href="'+$url+'">'+aName+'</a></div><div class="col-2 mb-2"><button type="button" class="deleteAttachment btn btn-sm btn-danger mt-1 btn-block"><i class="fas fa-trash"></i> {{ __("admin.delete") }}</button>  </div></div>'); 
+                    attachmentCount++;
+                    break;
+            }
         } 
 
         tinymce.init({
@@ -173,6 +197,23 @@
                         </div>
                     </div>
                     <div id="mediaList" class="row">
+                    </div>
+                    <hr>
+                    <div class="form-row" id="attachment">
+                        <div class="form-group col-md-8">
+                            <label for="attachmentName">{{ __('admin.attachment_name') }}</label>
+                            <input type="text" class="form-control" id="attachmentName">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="attachmentFile">{{ __('admin.attachment_file') }}</label>
+                            <button id="attachmentFile" class="btn btn-outline-warning btn-block">{{ __('admin.attachment_file') }}...</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="d-none d-md-block">&nbsp;</label>
+                            <button class="btn btn-outline-info btn-block">{{ __('admin.attachment_add') }}</button>
+                        </div>
+                    </div>
+                    <div id="attachmentList">    
                     </div>                    
                 </div>
                 <div class="tab-pane" id="pills-seo" role="tabpanel" aria-labelledby="pills-seo-tab">

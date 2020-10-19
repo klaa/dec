@@ -16,7 +16,7 @@
                     <div class="col-3"><img class="img-fluid" src="{{ empty($item->media->first()->link)?'https://image.flaticon.com/icons/svg/2990/2990729.svg':asset($item->media->first()->link) }}" alt="{{ $item->post_details->first()->name }}"></div>
                     <div class="col-9">
                         <h4>{{ $item->post_details->first()->name }}</h4>
-                        <p>{!! Str::words($item->post_details->first()->body, 50, '...') !!}</p>
+                        <p>{!! Str::words(strip_tags($item->post_details->first()->body), 50, '...') !!}</p>
                     </div>
                 </div>    
             </div>    

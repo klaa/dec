@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Attachment;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Media;
@@ -63,6 +64,15 @@ class PostController extends Controller
                     $media = new Media;
                     $media->link = $value;
                     $post->media()->save($media);
+                }
+            }
+            if(!empty($request->get('attachmentlist'))) {
+                $post->attachments()->delete();
+                foreach ($request->get('attachmentlist') as $key => $value) {
+                    $attachment = new Attachment;
+                    $attachment->link = $value['link'];
+                    $attachment->name = $value['name'];
+                    $post->attachments()->save($attachment);
                 }
             }            
             $msg = __('admin.update_post_success');
@@ -129,7 +139,17 @@ class PostController extends Controller
                     $media->link = $value;
                     $post->media()->save($media);
                 }
-            }            
+            }
+            
+            if(!empty($request->get('attachmentlist'))) {
+                $post->attachments()->delete();
+                foreach ($request->get('attachmentlist') as $key => $value) {
+                    $attachment = new Attachment;
+                    $attachment->link = $value['link'];
+                    $attachment->name = $value['name'];
+                    $post->attachments()->save($attachment);
+                }
+            }
             
             $msg = __('admin.update_post_success');
             $msg_type = 'success';

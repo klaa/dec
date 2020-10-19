@@ -22,6 +22,9 @@ class Post extends Model
     public function media() {
         return $this->morphMany('App\Media', 'mediable');
     }
+    public function attachments() {
+        return $this->hasMany('App\Attachment','post_id','id');
+    }
     protected static function booted()
     {
         static::addGlobalScope(new PostTypeScope);
