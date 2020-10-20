@@ -22,8 +22,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        dd($request->header("User-Agent"));
         $numOfItems = 5;
         $items = Post::with('post_details','media','category','category.category_details')->where('category_id','=','1')->paginate($numOfItems);
         return view('classic.index',compact('items'));
