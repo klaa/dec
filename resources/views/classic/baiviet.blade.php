@@ -9,6 +9,17 @@
         <div class="content text-justify">
             {!! $post->post_details->first()->body !!}
         </div>
+        @if ($post->attachments->count()>0)
+        <div class="content text-justify">
+          @foreach ($post->attachments as $item)
+            <div class="row item">
+              <div class="col-12">
+                <a href="{{ $item->link }}" alt="{{ $item->name}}" title="{{ $item->name }}">{{ $item->name }}</a>  
+              </div>  
+            </div>      
+          @endforeach
+        </div>
+        @endif
     </div>
   </div>
 @endsection
