@@ -28,7 +28,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.hocviencanbiet') }}</a>
           <ul class="dropdown-menu bg-md-primary">
-            <li><a href="#" class="dropdown-item">{{ __('menu.quychequidinh') }}</a></li>
+            <li><a href="{{ route('hvcb','quy-che-quy-dinh') }}" class="dropdown-item">{{ __('menu.quychequidinh') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.cacmaudon') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.cauhoithuonggap') }}</a></li>
           </ul>
