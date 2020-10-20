@@ -24,8 +24,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        echo "<h1>".$request->header("User-Agent")."</h1>";
-        dd($request->header("User-Agent"));
         $numOfItems = 5;
         $items = Post::with('post_details','media','category','category.category_details')->where('category_id','=','1')->paginate($numOfItems);
         return view('classic.index',compact('items'));

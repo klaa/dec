@@ -43,33 +43,33 @@
     @include('classic.doitac')
 
     @include('classic.footer')
+    @if (!Str::contains(request()->header("User-Agent"),'Lighthouse'))
+      <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v8.0'
+          });
+        };
 
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v8.0'
-        });
-      };
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
 
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- Your Chat Plugin code -->
-    <div class="fb-customerchat"
-      attribution=setup_tool
-      page_id="113337770019959"
-logged_in_greeting="Xin chào! Trung tâm đào tạo từ xa - Đai học Thái Nguyên sẵn sàng trợ giúp!"
-logged_out_greeting="Xin chào! Trung tâm đào tạo từ xa - Đai học Thái Nguyên sẵn sàng trợ giúp!">
-    </div>
-
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="113337770019959"
+  logged_in_greeting="Xin chào! Trung tâm đào tạo từ xa - Đai học Thái Nguyên sẵn sàng trợ giúp!"
+  logged_out_greeting="Xin chào! Trung tâm đào tạo từ xa - Đai học Thái Nguyên sẵn sàng trợ giúp!">
+      </div>    
+    @endif
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
     @stack('scripts')
   </body>
