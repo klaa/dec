@@ -10,6 +10,7 @@
             {!! $post->post_details->first()->body !!}
         </div>
         @if ($post->attachments->count()>0)
+        <h4>Đính kèm:</h4>
         <div class="content text-justify">
           @foreach ($post->attachments as $item)
             <div class="row item">
