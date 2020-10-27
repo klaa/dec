@@ -30,7 +30,7 @@
         let attachmentCount = 1;
         let inputId = '';
         function fmSetLink($url) {
-            var link = $url.replace('{{ config("app.url") }}/','');
+            var link = $url.replace('{{ config("app.url") }}','');
             switch(inputId) {
                 case 'media':
                     jQuery('#mediaList').prepend('<div class="col-3 mb-2"><img src="'+$url+'" class="img-fluid" /><input type="hidden" name="medialist[]" value="'+link+'"><button type="button" class="deleteMedia btn btn-sm btn-danger mt-1 btn-block"><i class="fas fa-trash"></i> {{ __("admin.delete") }}</button>  </div>'); 
@@ -40,7 +40,8 @@
                     if(aName!=='') {
                         jQuery('#attachmentName').val("");         
                     }else{
-                        aName = $url;
+                        var fileName = link.split("/");
+                        aName = fileName[fileName.length-1];
                     }
                     jQuery('#attachmentList').prepend('<div class="row"><input type="hidden" name="attachmentlist['+attachmentCount+'][link]" value="'+$url+'"><input type="hidden" name="attachmentlist['+attachmentCount+'][name]" value="'+aName+'"><div class="col-10 mb-2"><a href="'+$url+'">'+aName+'</a></div><div class="col-2 mb-2"><button type="button" class="deleteAttachment btn btn-sm btn-danger mt-1 btn-block"><i class="fas fa-trash"></i> {{ __("admin.delete") }}</button>  </div></div>'); 
                     attachmentCount++;
