@@ -229,8 +229,8 @@
                             <div class="row">
                                 <div class="col-10 mb-2">
                                     <a href="{{ $item->link }}">{{ $item->name }}</a>
-                                    <input type="hidden" name="attachmentlist[{{ $loop->index }}]['name']" value="{{ $item->name }}">    
-                                    <input type="hidden" name="attachmentlist[{{ $loop->index }}]['link']" value="{{ $item->link }}">    
+                                    <input type="hidden" name="attachmentlist[{{ $loop->index }}][name]" value="{{ $item->name }}">    
+                                    <input type="hidden" name="attachmentlist[{{ $loop->index }}][link]" value="{{ $item->link }}">    
                                 </div>
                                 <div class="col-2 mb-2">
                                     <button class="btn btn-block btn-outline-danger">{{ __('admin.delete') }}</button>
