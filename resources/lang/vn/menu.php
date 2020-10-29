@@ -36,5 +36,21 @@ return [
     'doingugiaovien'    => 'Đội ngũ giáo viên',
     'cosovatchat'       => 'Cơ sở vật chất',
     'congkhaitheocv2003'=> 'Công khai theo công văn 2003',
-    'lienhe'            => 'Liên hệ'   
+    'lienhe'            => 'Liên hệ',
+    'chatluonggiaoduc'  => 'Chất lượng giáo dục',
+    'camketclgd'        => 'Cam kết chất lượng giáo dục',
+    'clgdthucte'        => 'Chất lượng giáo dục thực tế',
+    'khungctvadecuong'  => 'Khung chương trình và đề cương',
+    'danhmucgttailieu'  => 'Danh mục giáo trình và tài liệu',
+    'chitieuts'         => 'Chỉ tiêu tuyển sinh',
+    'kiemdinh'          => 'Kiểm định',
+    'hdcapphatvb'       => 'Hoạt động cấp phát văn bằng cho người học',
+    'hdlkdaotao'        => 'Hoạt động liên kết đào tạo trong nước và với nước ngoài',
+    'dieukiendambaoclgd'=> 'Điều kiện đảm bảo chất lượng giáo dục',
+    'chuandaura'        => 'Chuẩn đầu ra',
+    'lylichkhgv'        => 'Lý lịch khoa học của giảng viên',
+    'daotaoboiduong'    => 'Đào tạo bồi dưỡng',
+    'thuchitaichinh'    => 'Thu chi tài chính',
+    'cktccsgd'          => 'Công khai tài chính của cơ sở giáo dục',
+    'cshocbong'         => 'Chính sách học bổng'     
 ];

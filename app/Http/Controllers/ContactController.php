@@ -20,7 +20,7 @@ class ContactController extends Controller
         //Send 
         Mail::to('nguyenkhanh87@gmail.com')->send(new YeuCauTuVan($request->only(['tvtsten','tvtssdt','tvtsnganh','tvtsdiachi'])));
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('message','Cảm ơn bạn quan tâm đến chương trình ! Chúng tôi sẽ trả lời sớm nhất có thể.');
     }
     public function contact(Request $request) {
         //Validate
@@ -32,6 +32,6 @@ class ContactController extends Controller
         //Send 
         Mail::to('nguyenkhanh87@gmail.com')->send(new LienHe($request->only(['name','phone','message'])));
 
-        return redirect()->route('contact');   
+        return redirect()->route('contact')->with('message','Cảm ơn bạn liên hệ! Chúng tôi sẽ trả lời sớm nhất có thể.');   
     }
 }

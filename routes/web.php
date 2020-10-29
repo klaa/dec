@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Intervention\Image\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +20,7 @@ Route::get('lien-he', 'HomeController@contact')->name('contact');
 Route::get('gioi-thieu/{post}','PostController@show')->name('gioithieu');
 Route::get('dao-tao/{post}','PostController@show')->name('daotao');
 Route::get('hoc-vien-can-biet/{post}','PostController@show')->name('hvcb');
+Route::get('ba-cong-khai/{post}','PostController@show')->name('bck');
 Route::get('tin-tuc/{post}','PostController@show')->name('news');
 Route::get('thong-bao/{post}','PostController@show')->name('anouncement');
 Route::post('tim-kiem', 'SearchController@search')->name('search');

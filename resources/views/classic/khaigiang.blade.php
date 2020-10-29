@@ -33,44 +33,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-md-2 my-2">
+            <div class="col-6 col-md-4 my-2">
                 <div class="bg-primary text-white p-2 rounded text-center">
                     <h3>Khai giảng tại Hà Giang</h3>
                     <h5>Ngày 23/10/2020</h5>
                     <p><i>(Lịch dự kiến)</i></p>
-                    <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#registerRequest">Đăng ký ngay</button>
+                    <button class="btn btn-block btn-warning" data-toggle="modal" data-request="hg" data-target="#registerRequest">Đăng ký ngay</button>
                 </div>
             </div>
-            <div class="col-6 col-md-2 my-2">
-                <div class="bg-primary text-white p-2 rounded text-center">
-                    <h3>Khai giảng tại Lạng Sơn</h3>
-                    <h5>Ngày 21/10/2020</h5>
-                    <p><i>(Lịch dự kiến)</i></p>
-                    <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#registerRequest">Đăng ký ngay</button>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 my-2">
-                <div class="bg-primary text-white p-2 rounded text-center">
-                    <h3>Khai giảng tại Đà Nẵng</h3>
-                    <h5>Ngày 29/10/2020</h5>
-                    <p><i>(Lịch dự kiến)</i></p>
-                    <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#registerRequest">Đăng ký ngay</button>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 my-2">
+            <div class="col-6 col-md-4 my-2">
                 <div class="bg-primary text-white p-2 rounded text-center">
                     <h3>Khai giảng tại Cần Thơ</h3>
                     <h5>Ngày 21/10/2020</h5>
                     <p><i>(Lịch dự kiến)</i></p>
-                    <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#registerRequest">Đăng ký ngay</button>
+                    <button class="btn btn-block btn-warning" data-toggle="modal" data-request="ct" data-target="#registerRequest">Đăng ký ngay</button>
                 </div>
             </div>
             <div class="col-12 col-md-4 my-2">
                 <div class="bg-primary text-white p-2 rounded text-center">
                     <h5>Hoặc</h5>
-                    <h3>Nếu bạn là một nhóm/cơ quan có nhu cầu học tập</h3>
-                    <p><i>(Số lượng từ 40 người)</i></p>
-                    <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#registerRequest">Yêu cầu mở lớp</button>
+                    <h3 class="pb-1">Nếu bạn là một nhóm/cơ quan có nhu cầu học tập</h3>
+                    <p class="d-none"><i>(Số lượng từ 40 người)</i></p>
+                    <button class="btn btn-block btn-warning" data-toggle="modal" data-request="molop" data-target="#registerRequest">Yêu cầu mở lớp</button>
                 </div>
             </div>
         </div>
@@ -89,7 +73,7 @@
         <div class="modal-body">
             <div class="form-group"><label for="nameInput">Họ tên</label><input name="register_name" type="text" class="form-control"></div>
             <div class="form-group"><label for="phoneInput">Số điện thoại</label><input name="register_phone" type="text" class="form-control"></div>
-            <div class="form-group d-none">
+            <div class="form-group molop d-none">
                 <label for="amountInput">Tôi đại diện cho nhóm</label>
                 <select name="register_amount" id="amountInput" class="form-control">
                     <option value="Chưa rõ">-- Chọn số lượng --</option>
@@ -111,6 +95,14 @@
 
 @push('scripts')
     <script type="text/javascript">
-        //Nothing yet!
+        jQuery('#registerRequest').on('show.bs.modal',function(e) {
+            var type = jQuery(e.relatedTarget).data('request');
+            if(type=='molop') {
+                jQuery('#registerRequest .molop').removeClass('d-none');    
+            }else{
+                jQuery('#registerRequest .molop').addClass('d-none');
+                jQuery('#amountInput').val("Chưa rõ");     
+            }
+        });    
     </script>
 @endpush

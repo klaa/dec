@@ -10,6 +10,11 @@
 <div class="tab">
     <h3 class="tab-header">Gửi thông tin liên hệ đến Trung tâm Đào tạo từ xa</h3>
     <div class="tab-body">
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>    
+        @endif
         <form action="{{ route('contact') }}" class="border-bottom mb-2" method="POST">
             @csrf
             <div class="form-group">

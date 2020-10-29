@@ -10,21 +10,21 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="d-block w-100" alt="anh demo">
+                <img src="{{ asset('images/mau_phoi_bang.jpg') }}" class="d-block w-100" alt="Mau phoi bang dai hoc online">
                 <div class="carousel-caption">
-                  <h5>Lễ khai giảng chương trình đào tạo cử nhân trực tuyến TNU – E.Learning tại Thành phố Hồ Chí Minh</h5>
+                  <h5>Mẫu phôi bằng tốt nghiệp của học viên không ghi hình thức đào tạo.</h5>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="d-block w-100" alt="anh demo">
+                <img src="{{ asset('images/chi_xet_tuyen.jpg') }}" class="d-block w-100" alt="anh demo">
                 <div class="carousel-caption">
-                  <h5>Lễ khai giảng chương trình đào tạo cử nhân trực tuyến TNU – E.Learning tại Thành phố Hồ Chí Minh</h5>
+                  <h5>Chỉ xét tuyển Đại học, không thi tuyển</h5>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="{{ asset('storage/pexels-photo-1634279-2.jpg') }}" class="d-block w-100" alt="anh demo">
+                <img src="{{ asset('images/thoi_gian_chuong_trinh.jpg') }}" class="d-block w-100" alt="anh demo">
                 <div class="carousel-caption">
-                  <h5>Lễ khai giảng chương trình đào tạo cử nhân trực tuyến TNU – E.Learning tại Thành phố Hồ Chí Minh</h5>
+                  <h5>Thời gian và chương trình học linh hoạt phù hợp mọi đối tượng</h5>
                 </div>
               </div>
             </div>
