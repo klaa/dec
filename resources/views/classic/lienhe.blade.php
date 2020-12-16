@@ -2,7 +2,7 @@
 
 @section('pagetitle', 'Liên hệ với Trung tâm Đào tạo Từ xa - Đại học Thái Nguyên')
 
-@section('khaigiang')
+@section('khaigiang2')
   @include('classic.khaigiang')     
 @endsection
 

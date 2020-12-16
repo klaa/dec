@@ -27,8 +27,11 @@ jQuery(function() {
     equalHeights();
     
     setInterval(function() {
-        jQuery('#doitac .dt-item.d-block:first').toggleClass('d-none d-block').appendTo('#doitac .dt-wrap .row');
-        jQuery('#doitac .dt-item.d-block:last').next().toggleClass('d-none d-block');
+
+        // jQuery('#doitac .dt-item.d-block:first').animate({width:'toggle'},800,function() {
+        //     jQuery(this).toggleClass('d-none d-block').appendTo('#doitac .dt-wrap .row').animate({width:'toggle'},10);
+        // });
+        // jQuery('#doitac .dt-item.d-block:last').next();
 
         jQuery('.scrollitem').each(function(i,v) {
             var targetItem = jQuery(v).find('.newsitem:first');

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Regulation;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class RegulationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $tinnoibat = Post::where('is_featured',1)->where('published',1)->get();
-        $news = Post::where('published',1)->latest()->paginate(10);
-        return view('classic.tintuc',compact('tinnoibat','news'));
+        //
     }
 
     /**
@@ -43,24 +41,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Regulation  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Regulation $regulation)
     {
-        $post->with(['post_details'=>function($query) {
-            $query->where('language','like',app()->getLocale());
-        }]);
-        return view('classic.baiviet',compact('post'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Regulation  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Regulation $regulation)
     {
         //
     }
@@ -69,10 +64,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  \App\Regulation  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Regulation $regulation)
     {
         //
     }
@@ -80,10 +75,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Regulation  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Regulation $regulation)
     {
         //
     }

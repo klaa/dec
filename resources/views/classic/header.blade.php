@@ -1,4 +1,4 @@
-<section id="header">
+<section id="header" class="bg-primary">
     <div class="container">
         <div class="row">
             <div class="col d-md-none"><a href="{{ route('home') }}"><img class="img-fluid" src="{{ asset('images/banner_mobile.jpg') }}" alt="Dai hoc online"></a></div>

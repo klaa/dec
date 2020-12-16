@@ -2,7 +2,7 @@
 
 @section('pagetitle', 'Tìm kiếm '.$keyword)
 
-@section('khaigiang')
+@section('khaigiang2')
   @include('classic.khaigiang')     
 @endsection
 

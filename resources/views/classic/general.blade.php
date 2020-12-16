@@ -15,9 +15,9 @@
   </head>
   <body>
     
-    <div class="sticky-top">
+    
       @include('classic.header')
-
+    <div class="sticky-top">
       @include('classic.navigation')
     </div>
 
@@ -39,8 +39,12 @@
         </div>
       </div>
     </section>
+
+    @yield('khaigiang2')
     
     @include('classic.doitac')
+
+    @include('classic.menu_bottom')
 
     @include('classic.footer')
     @if (!Str::contains(request()->header("User-Agent"),'Lighthouse'))

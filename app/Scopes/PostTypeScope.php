@@ -21,6 +21,9 @@ class PostTypeScope implements Scope
             case 'App\Post':
                 $type = 'post';
                 break;
+            case 'App\Regulation':
+                $type = 'regulation';
+                break;
             case 'App\Product':
                 $type = 'product';
                 break;
