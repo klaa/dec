@@ -14,6 +14,9 @@ use stdClass;
 
 class PostController extends Controller
 {
+    public $_type = 'posts';
+    public $_post_type = 'post';
+    
     public function __construct()
     {
         $this->authorizeResource(Post::class);
@@ -25,7 +28,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index');
+        return view('admin.'.$this->_type.'.index');
     }
 
     /**
@@ -35,8 +38,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::with('category_details')->where([['published','=',1]])->get();
-        return view('admin.posts.create',compact('categories'));
+        $categories = Category::with('category_details')->where([['published','=',1],['category_type','=',$this->_post_type]])->get();
+        return view('admin.'.$this->_type.'.create',compact('categories'));
     }
 
     /**
@@ -53,7 +56,7 @@ class PostController extends Controller
         if(empty($request->user_id)) {
             $request->merge(['user_id'=>auth()->user()->id]);
         }
-        $request->merge(['post_type'=>'post','language'=>'vn']);
+        $request->merge(['post_type'=>$this->_post_type,'language'=>'vn']);
         $post = new Post();
         $validatedData = $request->validate($post->ruleForCreating());
         $post->__construct($request->only(['category_id','alias' ,'published','user_id','post_type','is_featured','ordering']));
@@ -81,10 +84,10 @@ class PostController extends Controller
             $msg = __('admin.action_failed');
             $msg_type = 'error';
         }
-        $routename = 'admin.posts.index';
+        $routename = 'admin.'.$this->_type.'.index';
         $param = [];
         if($request->task=='save') {
-            $routename = 'admin.posts.edit';
+            $routename = 'admin.'.$this->_type.'.edit';
             $param  = $post;
         }
         return redirect()->route($routename,$param)->with($msg_type,$msg);
@@ -109,8 +112,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::with('category_details')->where([['published','=',1],['category_type','=','post']])->get();
-        return view('admin.posts.edit',compact(['categories','post']));
+        $categories = Category::with('category_details')->where([['published','=',1],['category_type','=',$this->_post_type]])->get();
+        return view('admin.'.$this->_type.'.edit',compact(['categories','post']));
     }
 
     /**
@@ -157,10 +160,10 @@ class PostController extends Controller
             $msg = __('admin.action_failed');
             $msg_type = 'error';
         }
-        $routename = 'admin.posts.index';
+        $routename = 'admin.'.$this->_type.'.index';
         $param = [];
         if($request->task=='save') {
-            $routename = 'admin.posts.edit';
+            $routename = 'admin.'.$this->_type.'.edit';
             $param  = $post;
         }
         return redirect()->route($routename,$param)->with($msg_type,$msg);
@@ -183,30 +186,30 @@ class PostController extends Controller
             $message = __('admin.action_failed');
             $message_state = 'error';
         }
-        return redirect()->route('admin.posts.index')->with($message_state,$message);
+        return redirect()->route('admin.'.$this->_type.'.index')->with($message_state,$message);
     }
 
     /**
      * Prepare data for datatable ajax request
      * @return JSON 
      */
-    public function getDatatable() {
+    public function getDatatable(Request $request) {
         $user = auth()->user();
-        $params = [];
+        $params = [['post_type','=',$this->_post_type]];
         if($user->hasRole('super-user')==false) {
             if($user->hasPermissions('post-viewAny')==false && $user->has('posts','>',0)) {
                 $params[] = ['user_id','=',$user->id];
             }    
         }
-        $items = Post::where($params)->with('post_details')->get();
+        $items = Post::where($params)->with('post_details')->orderBy('ordering','desc')->get();
         $items = $items->map(function($item) {
-            $name   = '<a href="'.route('admin.posts.edit',$item).'">'.$item->post_details->first()->name.'</a>';
+            $name   = '<a href="'.route('admin.'.$this->_type.'.edit',$item).'">'.$item->post_details->first()->name.'</a>';
             if($item->published) {
-                $pbtn = '<a href="'.route('admin.posts.publish',$item).'" class="text-success"><i class="far fa-check-circle"></i></a>';
+                $pbtn = '<a href="'.route('admin.'.$this->_type.'.publish',$item).'" class="text-success"><i class="far fa-check-circle"></i></a>';
             }else{
-                $pbtn = '<a href="'.route('admin.posts.publish',$item).'" class="text-danger"><i class="far fa-times-circle"></i></a>';
+                $pbtn = '<a href="'.route('admin.'.$this->_type.'.publish',$item).'" class="text-danger"><i class="far fa-times-circle"></i></a>';
             }
-            $action = '<a href="'.route('admin.posts.edit',$item).'" class="btn btn-info btn-sm"><i class="far fa-edit fa-sm"></i></a> <a data-action="'.route('admin.posts.destroy',$item).'" href="#deleteModal" data-toggle="modal" class="btn btn-danger btn-sm deleteButton"><i class="fas fa-trash fa-sm"></i></a>';
+            $action = '<a href="'.route('admin.'.$this->_type.'.edit',$item).'" class="btn btn-info btn-sm"><i class="far fa-edit fa-sm"></i></a> <a data-action="'.route('admin.'.$this->_type.'.destroy',$item).'" href="#deleteModal" data-toggle="modal" class="btn btn-danger btn-sm deleteButton"><i class="fas fa-trash fa-sm"></i></a>';
             return [$item->id,$name,$item->ordering,$pbtn,$action];
         });
         $response = new stdClass;
@@ -232,6 +235,6 @@ class PostController extends Controller
             $message = __('admin.action_failed');
             $message_state = 'error';
         }
-        return redirect()->route('admin.posts.index')->with($message_state,$message);
+        return redirect()->route('admin.'.$this->_type.'.index')->with($message_state,$message);
     }
 }

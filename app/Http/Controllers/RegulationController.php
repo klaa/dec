@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Regulation;
+use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 
 class RegulationController extends Controller
@@ -14,7 +15,11 @@ class RegulationController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::with(['category_details'=>function($query) {
+            $query->where('language','like',app()->getLocale());
+        }])->where('category_type','regulation')->where('published',1)->get();
+        // dd($categories);
+        return view('classic.regulations',compact('categories'));
     }
 
     /**
@@ -41,10 +46,10 @@ class RegulationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Regulation  $regulation
+     * @param  \App\Post  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function show(Regulation $regulation)
+    public function show(Post $regulation)
     {
         //
     }
@@ -52,10 +57,10 @@ class RegulationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Regulation  $regulation
+     * @param  \App\Post  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Regulation $regulation)
+    public function edit(Post $regulation)
     {
         //
     }
@@ -64,10 +69,10 @@ class RegulationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Regulation  $regulation
+     * @param  \App\Post  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Regulation $regulation)
+    public function update(Request $request, Post $regulation)
     {
         //
     }
@@ -75,10 +80,10 @@ class RegulationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Regulation  $regulation
+     * @param  \App\Post  $regulation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Regulation $regulation)
+    public function destroy(Post $regulation)
     {
         //
     }

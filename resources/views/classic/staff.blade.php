@@ -2,7 +2,7 @@
 
 @section('pagetitle', 'Đội ngũ cán bộ')
 
-@section('khaigiang')
+@section('khaigiang2')
   @include('classic.khaigiang')     
 @endsection
 

@@ -17,8 +17,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('lien-he', 'HomeController@contact')->name('contact');
+Route::get('quy-che-quy-dinh','RegulationController@index')->name('regulations');
 Route::get('gioi-thieu/{post}','PostController@show')->name('gioithieu');
 Route::get('dao-tao/{post}','PostController@show')->name('daotao');
+Route::get('tuyen-sinh/{post}','PostController@show')->name('tuyensinh');
 Route::get('hoc-vien-can-biet/{post}','PostController@show')->name('hvcb');
 Route::get('ba-cong-khai/{post}','PostController@show')->name('bck');
 Route::get('tin-tuc','PostController@index')->name('news');
@@ -78,6 +80,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
         Route::any('/{partner}/publish','PartnerController@publish')->name('publish');
     });
 
+    Route::prefix('regulations')->name('regulations.')->group(function() {
+        Route::get('datatable','RegulationController@getDatatable')->name('datatable');
+        Route::any('/{regulation}/publish','RegulationController@publish')->name('publish');
+    });
+
     Route::prefix('students')->name('students.')->group(function() {
         Route::get('datatable','StudentController@getDatatable')->name('datatable');
         Route::get('diploma','StudentController@index')->name('diploma');
@@ -96,6 +103,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
     Route::resource('menucategories','MenuCategoryController');        
     Route::resource('partners','PartnerController');        
     Route::resource('students','StudentController');        
+    Route::resource('regulations','RegulationController')->parameters([
+        'regulations' => 'post',
+    ]);        
 });
 
 

@@ -109,6 +109,24 @@
         </div>
       </div>
     </li>
+    
+    {{-- Regulation management --}}
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegulation" aria-expanded="true" aria-controls="collapseRegulation">
+        <i class="fas fa-fw fa-book"></i>
+        <span>{{ __('admin.regulation_management') }}</span>
+      </a>
+      <div id="collapseRegulation" class="collapse" aria-labelledby="headingRegulation" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">{{ __('admin.post_category') }}:</h6>
+          <a class="collapse-item" href="{{ route('admin.categories.index',['type'=>'regulation']) }}">{{ __('admin.category_list') }}</a>
+          <a class="collapse-item" href="{{ route('admin.categories.create',['type'=>'regulation']) }}">{{ __('admin.category_create') }}</a>
+          <h6 class="collapse-header">{{ __('admin.regulation_management') }}:</h6>
+          <a class="collapse-item" href="{{ route('admin.regulations.index') }}">{{ __('admin.regulation_list') }}</a>
+          <a class="collapse-item" href="{{ route('admin.regulations.create') }}">{{ __('admin.regulation_create') }}</a>
+        </div>
+      </div>
+    </li>
 
     @if(config('app.menu_enabled'))
     <li class="nav-item">

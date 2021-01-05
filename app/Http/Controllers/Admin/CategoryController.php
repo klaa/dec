@@ -13,10 +13,10 @@ class CategoryController extends Controller
 {
     public $type;
     public $routeList;
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->authorizeResource(Category::class);
-        $this->type = 'post';
+        $this->type = $request->get('type','post');
         $this->routeList = [
             'datatable'     => 'admin.categories.datatable',
             'index'         => 'admin.categories.index',
@@ -76,7 +76,7 @@ class CategoryController extends Controller
             $msg_type = 'error';
         }
         $routename = $this->routeList['index'];
-        $param = [];
+        $param = ['type'=>$category->category_type];
         if($request->task=='save') {
             $routename = $this->routeList['edit'];
             $param  = $category;
@@ -121,13 +121,13 @@ class CategoryController extends Controller
         if(empty($request->alias)) {            
             $request->merge(['alias'=>Str::slug($request->name)]);
         }
-        $request->merge(['category_type'=>$this->type,'language'=>'vn']);
+        $request->merge(['language'=>'vn']);
         $validatedData = $request->validate([
             'name'      => ['required'],
             'alias'     => ['required','unique:categories,alias,'.$category->id.',id'],
         ]);
  
-        if($category->update($request->only(['parent_id','alias','published','category_type']))) {
+        if($category->update($request->only(['parent_id','alias','published']))) {
             $category->category_details()->update($request->only(['name','desc','keywords','title','language']));
             $msg = __('admin.update_category_success');
             $msg_type = 'success';
@@ -136,7 +136,7 @@ class CategoryController extends Controller
             $msg_type = 'error';
         }
         $routename = $this->routeList['index'];
-        $param = [];
+        $param = ['type'=>$category->category_type];
         if($request->task=='save') {
             $routename = $this->routeList['edit'];
             $param  = $category;

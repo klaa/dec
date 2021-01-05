@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 
-@section('pagetitle',__('admin.category_list'))
+@section('pagetitle',__('admin.post_list'))
 
 @push('scripts')
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
@@ -9,7 +9,7 @@
         $(document).ready(function() {
             //For data table
             $('#dataTable').DataTable({
-                "ajax": "{{ route($routeList['datatable'],['type'=>request()->get('type','post')]) }}",
+                "ajax": "{{ route('admin.regulations.datatable') }}",
                 "deferRender": true,
                 "order": [],
                 "language": {
@@ -49,9 +49,9 @@
 @section('pageheading')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('admin.post_category') }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ __('admin.post_list') }}</h1>
         <div class="btnwrapper">
-            <a href="{{ route($routeList['create'],['type'=>request()->get('type','post')]) }}" class="btn btn-sm btn-success shadow-sm"><i class="fas fa-users fa-sm text-white-50"></i> {{ __('admin.group_create') }}</a>
+            <a href="{{ route('admin.regulations.create') }}" class="btn btn-sm btn-success shadow-sm"><i class="fas fa-users fa-sm text-white-50"></i> {{ __('admin.post_create') }}</a>
         </div>
     </div>    
 @endsection

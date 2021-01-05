@@ -25,7 +25,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('news') }}">{{ __('menu.tintuc') }}</a>
         </li>
-        <li><a class="nav-link" href="{{ route('hvcb','quy-che-quy-dinh') }}" class="dropdown-item">{{ __('menu.quychequidinh') }}</a></li>
+        <li><a class="nav-link" href="{{ route('regulations') }}" class="dropdown-item">{{ __('menu.quychequidinh') }}</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/daotao" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.daotao') }}</a>
           <ul class="dropdown-menu bg-md-primary">
@@ -48,7 +48,7 @@
             <li><a href="#" class="dropdown-item">{{ __('menu.thongbaotuyensinh') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.lichkhaigiang') }}</a></li>
             <li><a href="#" class="dropdown-item">{{ __('menu.tuvantuyensinh') }}</a></li>
-            <li><a class="dropdown-item" href="{{ route('hvcb','huong-dan-hoc-vien') }}">{{ __('menu.huongdanhocvien') }}</a></li>
+            <li><a class="dropdown-item" href="{{ route('tuyensinh','huong-dan-hoc-vien') }}">{{ __('menu.huongdanhocvien') }}</a></li>
           </ul>
         </li>
         

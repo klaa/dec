@@ -25,10 +25,10 @@ class Post extends Model
     public function attachments() {
         return $this->hasMany('App\Attachment','post_id','id');
     }
-    protected static function booted()
-    {
-        static::addGlobalScope(new PostTypeScope);
-    }
+    // protected static function booted()
+    // {
+    //     static::addGlobalScope(new PostTypeScope);
+    // }
     public function getRouteKeyName()
     {
         return 'alias';

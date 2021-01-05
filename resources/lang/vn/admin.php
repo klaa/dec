@@ -145,4 +145,9 @@ return [
     'attachment_file'       => 'File đính kèm',
     'attachment_add'        => 'Thêm file đính kèm',
 
+    'regulation_management' => 'Quản lý QC/QĐ',
+    'regulation_create'     => 'Tạo QC/QĐ mới',
+    'regulation_list'       => 'Danh sách QC/QĐ',
+    'regulation_edit'       => 'Chỉnh sửa QC/QĐ',
+
 ];
