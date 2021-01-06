@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('lien-he', 'HomeController@contact')->name('contact');
 Route::get('quy-che-quy-dinh','RegulationController@index')->name('regulations');
+Route::get('quy-che-quy-dinh/{post}','PostController@show')->name('regulation');
 Route::get('gioi-thieu/{post}','PostController@show')->name('gioithieu');
 Route::get('dao-tao/{post}','PostController@show')->name('daotao');
 Route::get('tuyen-sinh/{post}','PostController@show')->name('tuyensinh');

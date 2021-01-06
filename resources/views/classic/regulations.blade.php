@@ -20,7 +20,15 @@
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 @foreach ($categories as $item)
-                    <div class="tab-pane fade @if($loop->index==0) show active @endif" id="cat-{{ $item->id }}" role="tabpanel" aria-labelledby="pills-home-tab">Danh muc {{ $item->id }}</div>
+                    <div class="tab-pane fade @if($loop->index==0) show active @endif" id="cat-{{ $item->id }}" role="tabpanel" aria-labelledby="pills-home-tab">
+                        @foreach ($item->posts as $p)
+                            <div class="regulation-item mb-3">
+                                <h4 class="m-0">
+                                    <a href="{{ route('regulation',$p->alias) }}">{{ $p->post_details()->first()->name }}</a>
+                                </h4>
+                            </div>
+                        @endforeach    
+                    </div>
                 @endforeach
             </div>    
         </div>

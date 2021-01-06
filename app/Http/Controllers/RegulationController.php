@@ -15,7 +15,7 @@ class RegulationController extends Controller
      */
     public function index()
     {
-        $categories = Category::with(['category_details'=>function($query) {
+        $categories = Category::with(['posts','category_details'=>function($query) {
             $query->where('language','like',app()->getLocale());
         }])->where('category_type','regulation')->where('published',1)->get();
         // dd($categories);
