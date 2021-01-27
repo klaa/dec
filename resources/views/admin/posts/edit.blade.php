@@ -65,7 +65,7 @@
             image_advtab: true,
             language : 'vi',
             language_url : '{{ asset("js/vi.js") }}',
-            relative_urls : true,
+            relative_urls : false,
             document_base_url : '{{ config("app.url") }}',
             file_picker_callback (callback, value, meta) {
                 let x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth
