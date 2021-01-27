@@ -30,6 +30,7 @@ Route::get('thong-bao/{post}','PostController@show')->name('anouncement');
 Route::post('tim-kiem', 'SearchController@search')->name('search');
 Route::get('tim-kiem/{keyword}', 'SearchController@result')->name('result');
 Route::get('doi-ngu-can-bo','StaffController@index')->name('staff');
+Route::get('tra-cuu-diem/{post}','PostController@show')->name('tracuudiem');
 
 Route::post('tvts', 'ContactController@tvts')->name('tvts');
 Route::post('lien-he','ContactController@contact')->name('contact');

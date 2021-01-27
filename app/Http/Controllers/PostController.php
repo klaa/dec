@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public $_type = 'post';
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $tinnoibat = Post::where('is_featured',1)->where('published',1)->get();
-        $news = Post::where('published',1)->latest()->paginate(10);
+        $tinnoibat = Post::where([['is_featured',1],['published',1],['post_type',$this->_type]])->with(['media','post_details'=>function($query) {
+            $query->where('language','like',app()->getLocale());
+        }])->get();
+        $news = Post::where([['published',1],['post_type',$this->_type]])->with(['media','post_details'=>function($query) {
+            $query->where('language','like',app()->getLocale());
+        }])->latest()->paginate(10);
         return view('classic.tintuc',compact('tinnoibat','news'));
     }
 
@@ -48,7 +53,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->with(['post_details'=>function($query) {
+        $post->with(['media','post_details'=>function($query) {
             $query->where('language','like',app()->getLocale());
         }]);
         return view('classic.baiviet',compact('post'));

@@ -4,12 +4,12 @@
             <div class="col-md-6 my-2">
                 <div class="khaigiang khaigianghn text-center bg-primary text-white p-4 rounded">
                     <h3>Khai giảng tại Hà Nội</h3>
-                    <h5>Ngày 25/10/2020</h5>
+                    <h5>Ngày 07/03/2021</h5>
                     <div class="demnguoc demnguochn">
-                        <button class="btn btn-lg btn-outline-warning ngay my-1">09 ngày</button>
-                        <button class="btn btn-lg btn-outline-warning gio my-1">10 giờ</button>
+                        <button class="btn btn-lg btn-outline-warning ngay my-1">20 ngày</button>
+                        <button class="btn btn-lg btn-outline-warning gio my-1">21 giờ</button>
                         <button class="btn btn-lg btn-outline-warning phut my-1">22 phút</button>
-                        <button class="btn btn-lg btn-outline-warning giay my-1">00 giây</button>
+                        <button class="btn btn-lg btn-outline-warning giay my-1">23 giây</button>
                     </div>
                     <div class="dangkyngay mt-3">
                         <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#registerRequest">Đăng ký ngay</a>
@@ -19,12 +19,12 @@
             <div class="col-md-6 my-2">
                 <div class="khaigiang khaigianghcm text-center bg-primary text-white p-4 rounded">
                     <h3>Khai giảng tại Hồ Chí Minh</h3>
-                    <h5>Ngày 13/09/2020</h5>
+                    <h5>Ngày 14/03/2021</h5>
                     <div class="demnguoc demnguochcm">
                         <button class="btn btn-lg btn-outline-warning ngay my-1">23 ngày</button>
                         <button class="btn btn-lg btn-outline-warning gio my-1">10 giờ</button>
                         <button class="btn btn-lg btn-outline-warning phut my-1">22 phút</button>
-                        <button class="btn btn-lg btn-outline-warning giay my-1">00 giây</button>
+                        <button class="btn btn-lg btn-outline-warning giay my-1">22 phút</button>
                     </div>
                     <div class="dangkyngay mt-3">
                         <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#registerRequest">Đăng ký ngay</a>
@@ -36,7 +36,7 @@
             <div class="col-6 col-md-4 my-2">
                 <div class="bg-primary text-white p-2 rounded text-center">
                     <h3>Khai giảng tại Hà Giang</h3>
-                    <h5>Ngày 23/10/2020</h5>
+                    <h5>Ngày 26/03/2020</h5>
                     <p><i>(Lịch dự kiến)</i></p>
                     <button class="btn btn-block btn-warning" data-toggle="modal" data-request="hg" data-target="#registerRequest">Đăng ký ngay</button>
                 </div>
@@ -44,7 +44,7 @@
             <div class="col-6 col-md-4 my-2">
                 <div class="bg-primary text-white p-2 rounded text-center">
                     <h3>Khai giảng tại Cần Thơ</h3>
-                    <h5>Ngày 21/10/2020</h5>
+                    <h5>Ngày 21/03/2020</h5>
                     <p><i>(Lịch dự kiến)</i></p>
                     <button class="btn btn-block btn-warning" data-toggle="modal" data-request="ct" data-target="#registerRequest">Đăng ký ngay</button>
                 </div>
@@ -95,6 +95,37 @@
 
 @push('scripts')
     <script type="text/javascript">
+        var timediff = function(t1,t2) {
+            var msec = (t1-t2);            
+            var dd = Math.floor(msec/1000/60/60/24);
+            msec -= dd * 1000 * 60 * 60 * 24;
+            var hh = Math.floor(msec / 1000 / 60 / 60);
+            msec -= hh * 1000 * 60 * 60;
+            var mm = Math.floor(msec / 1000 / 60);
+            msec -= mm * 1000 * 60;
+            var ss = Math.floor(msec / 1000);
+            msec -= ss * 1000;
+            return [dd,hh,mm,ss];
+        };
+        var checkTime = function() {
+            var kghn  = new Date("3/7/2021 8:00:00");
+            var kghcm = new Date("3/14/2021 8:00:00");
+            var cTime = Date.now();
+            var tmpHN = timediff(kghn.getTime(),cTime);
+            jQuery('.demnguochn .ngay').text(tmpHN[0] + ' ngày');
+            jQuery('.demnguochn .gio').text(tmpHN[1] + ' giờ');
+            jQuery('.demnguochn .phut').text(tmpHN[2] + ' phút');
+            jQuery('.demnguochn .giay').text(tmpHN[3] + ' giây');
+            var tmpHCM = timediff(kghcm.getTime(),cTime);
+            jQuery('.demnguochcm .ngay').text(tmpHCM[0] + ' ngày');
+            jQuery('.demnguochcm .gio').text(tmpHCM[1] + ' giờ');
+            jQuery('.demnguochcm .phut').text(tmpHCM[2] + ' phút');
+            jQuery('.demnguochcm .giay').text(tmpHCM[3] + ' giây');
+            setTimeout(checkTime,1000);
+        };
+        jQuery(document).ready(function() {
+            checkTime();
+        });
         jQuery('#registerRequest').on('show.bs.modal',function(e) {
             var type = jQuery(e.relatedTarget).data('request');
             if(type=='molop') {

@@ -19,6 +19,12 @@
   @include('classic.nganhdaotao')
 @endsection
 
+{{-- @section('introvideo')
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/A6LitFDXzUY?controls=0" width="100%"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div> 
+@endsection --}}
+
 @section('maincontent')
   <div class="tab">
     <h3 class="tab-header">Đào tạo</h3>

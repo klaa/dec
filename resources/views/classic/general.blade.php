@@ -23,9 +23,11 @@
 
     @yield('slide')
 
-    @yield('nganhdaotao')
+    @yield('introvideo')
 
     @yield('khaigiang')
+
+    @yield('nganhdaotao')
 
     <section id="maincontent" class="my-2">
       <div class="container">

@@ -55,5 +55,7 @@ return [
     'cktccsgd'          => 'Công khai tài chính của cơ sở giáo dục',
     'cshocbong'         => 'Chính sách học bổng',
     'tracuudiem'        => 'Tra cứu điểm',
-    'tienich'           => 'Tiện ích',     
+    'tienich'           => 'Tiện ích',
+    'gvgiangday'        => 'Giáo viên giảng dạy',
+    'chuyengiahd'       => 'Chuyên gia hướng dẫn',     
 ];

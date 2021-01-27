@@ -21,6 +21,11 @@
           </div>
           </div>
           <div class="col-md-3">
+            <div class="ytb-video p-2">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/A6LitFDXzUY?controls=0" width="100%"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
             <div class="visit-info p-2">
               <h5 class="mb-1 text-center">Lượt truy cập</h5>
               <p class="m-0 d-flex" style="justify-content: space-between;"><span>Tổng số:</span> <span class="totalvisit">857.853.431</span></p>

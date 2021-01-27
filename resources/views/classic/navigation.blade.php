@@ -45,9 +45,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.tuyensinh') }}</a>
           <ul class="dropdown-menu bg-md-primary">
-            <li><a href="#" class="dropdown-item">{{ __('menu.thongbaotuyensinh') }}</a></li>
-            <li><a href="#" class="dropdown-item">{{ __('menu.lichkhaigiang') }}</a></li>
-            <li><a href="#" class="dropdown-item">{{ __('menu.tuvantuyensinh') }}</a></li>
+            <li><a href="{{ route('tuyensinh','thong-bao-tuyen-sinh') }}" class="dropdown-item">{{ __('menu.thongbaotuyensinh') }}</a></li>
+            {{-- <li><a href="#" class="dropdown-item">{{ __('menu.lichkhaigiang') }}</a></li> --}}
+            <li><a href="{{ route('tuyensinh','tu-van-tuyen-sinh') }}" class="dropdown-item">{{ __('menu.tuvantuyensinh') }}</a></li>
             <li><a class="dropdown-item" href="{{ route('tuyensinh','huong-dan-hoc-vien') }}">{{ __('menu.huongdanhocvien') }}</a></li>
           </ul>
         </li>
@@ -55,15 +55,15 @@
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.tracuudiem') }}</a>
           <ul class="dropdown-menu bg-md-primary">
-            <li><a href="{{ route('daotao','diem-thi-ha-noi') }}" class="dropdown-item">{{ __('menu.diemthihn') }}</a></li>
-            <li><a href="#" class="dropdown-item">{{ __('menu.diemthihcm') }}</a></li>
+            <li><a href="{{ route('tracuudiem','diem-thi-ha-noi') }}" class="dropdown-item">{{ __('menu.diemthihn') }}</a></li>
+            <li><a href="{{ route('tracuudiem','diem-thi-ho-chi-minh') }}" class="dropdown-item">{{ __('menu.diemthihcm') }}</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.hocviencanbiet') }}</a>
           <ul class="dropdown-menu bg-md-primary">
             <li><a href="{{ route('hvcb','cac-mau-don') }}" class="dropdown-item">{{ __('menu.cacmaudon') }}</a></li>
-            <li><a href="{{ route('hvcb','cau-hoi-thuong-gap') }}" class="dropdown-item">{{ __('menu.cauhoithuonggap') }}</a></li>
+            {{-- <li><a href="{{ route('hvcb','cau-hoi-thuong-gap') }}" class="dropdown-item">{{ __('menu.cauhoithuonggap') }}</a></li> --}}
           </ul>
         </li>
         
