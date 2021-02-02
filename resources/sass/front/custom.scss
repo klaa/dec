@@ -26,6 +26,11 @@
 #ttdttxmap {height: 300px; width:100%;}
 .closewrap {justify-content: flex-end;}
 
+.newsevents-item-wrap {
+    border: 1px solid lighten($blue, 30);
+    .newstitle {padding:5px;background-color: $gray;}
+}
+
 @media (min-width: 768px) {
     .bg-md-primary {background-image: linear-gradient(to bottom right,$blue,darken($blue,20%));}
     .hovernav {
@@ -51,10 +56,6 @@
     .dropdown-menu .dropdown .dropdown-menu {padding-left: 0;padding-right: 0;} 
     
     .newsevents {
-        .newsevents-item-wrap {
-            border: 1px solid lighten($blue, 30);
-            .newstitle {padding:5px;background-color: $gray;}
-        }
         .newsimage {
             img {
                 height: 130px;
