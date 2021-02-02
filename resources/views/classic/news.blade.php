@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-8"><h3 class="text-secondary d-flex justify-content-start text-decoration-underline"><img class="mr-1" src="{{ asset('images/newspaper.svg') }}" width="28" height="28" alt="{{ __('home.news_events') }}">{{ __('home.news_events') }}</h3></div>
+                    <div class="col-8"><h3 class="text-secondary d-flex justify-content-start border-bottom"><img class="mr-1" src="{{ asset('images/newspaper.svg') }}" width="28" height="28" alt="{{ __('home.news_events') }}">{{ __('home.news_events') }}</h3></div>
                     <div class="col-4 d-flex justify-content-end">
                         <button data-direction="1" class="btn newseventsbtn btn-outline-info h6 btn-sm mr-1">&lArr;</button>
                         <button data-direction="2" class="btn newseventsbtn btn-outline-info h6 btn-sm">&rArr;</button>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h3 class="text-secondary d-flex justify-content-start text-decoration-underline"><img class="mr-1" src="{{ asset('images/feature.svg') }}" width="28" height="28" alt="{{ __('home.featurednews') }}">{{ __('home.featurednews') }}</h3>
+                <h3 class="text-secondary d-flex justify-content-start border-bottom"><img class="mr-1" src="{{ asset('images/feature.svg') }}" width="28" height="28" alt="{{ __('home.featurednews') }}">{{ __('home.featurednews') }}</h3>
                 <div class="featurednews">
                     <div class="row">
                         @foreach ($featurednews as $item)
