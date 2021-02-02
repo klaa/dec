@@ -110,7 +110,8 @@
         });
         jQuery('#nganhdaotaoDKN').on('click', function() {
             jQuery('#nganhDaotao').modal('toggle');
-            jQuery("html, body").animate({ scrollTop: jQuery('.formtuyensinh').offset().top }, 1000);
+            // jQuery("html, body").animate({ scrollTop: jQuery('.formtuyensinh').offset().top }, 1000);
+            jQuery('#tvtsModal').modal('toggle');
         });
     </script>
 @endpush

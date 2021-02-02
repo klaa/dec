@@ -51,6 +51,10 @@
     .dropdown-menu .dropdown .dropdown-menu {padding-left: 0;padding-right: 0;} 
     
     .newsevents {
+        .newsevents-item-wrap {
+            border: 1px solid lighten($blue, 30);
+            .newstitle {padding:5px;}
+        }
         .newsimage {
             img {
                 max-height: 130px;   

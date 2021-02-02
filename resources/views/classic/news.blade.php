@@ -19,7 +19,7 @@
                                         <a href="{{ route('newsdetail',$item->alias) }}"><img src="{{ asset(empty($item->media->first()->link)?'images/noimage.jpg':$item->media->first()->link) }}" class="img-fluid" title="{{ $item->post_details->first()->name }}" alt="{{ $item->post_details->first()->name }}"></a>
                                     </div>
                                     <div class="newstitle">
-                                        <h3><a href="{{ route('newsdetail',$item->alias) }}">{{ Str::words($item->post_details->first()->name,10) }}</a></h3>
+                                        <h5><a href="{{ route('newsdetail',$item->alias) }}">{{ Str::words($item->post_details->first()->name,10) }}</a></h5>
                                     </div>
                                 </div>
                             </div>
