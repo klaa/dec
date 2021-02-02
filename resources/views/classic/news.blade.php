@@ -13,7 +13,7 @@
                 <div class="newsevents">
                     <div class="row">
                         @foreach ($news as $item)
-                            <div class="col-md-4 newsevents-item @if($loop->index<3) d-block @else d-none @endif">
+                            <div class="col-md-4 mb-2 newsevents-item @if($loop->index<3) d-block @else d-none @endif">
                                 <div class="newsevents-item-wrap">
                                     <div class="newsimage">
                                         <a href="{{ route('newsdetail',$item->alias) }}"><img src="{{ asset(empty($item->media->first()->link)?'images/noimage.jpg':$item->media->first()->link) }}" class="img-fluid" title="{{ $item->post_details->first()->name }}" alt="{{ $item->post_details->first()->name }}"></a>
