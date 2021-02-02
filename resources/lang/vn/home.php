@@ -9,5 +9,9 @@ return [
     'published' => 'Công khai',
     'cancel' => 'Hủy bỏ',
     'delete' => 'Xóa',
-    'action' => 'Hành động'
+    'action' => 'Hành động',
+    'news_events'       => 'Tin tức - Sự kiện',
+    'featurednews'      => 'Tin nổi bật',
+    'thongtinsuutam'    => 'Thông tin sưu tầm',
+    'tuvantuyensinh'    => 'Tư vấn tuyển sinh',    
 ];

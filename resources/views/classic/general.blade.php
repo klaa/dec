@@ -23,6 +23,8 @@
 
     @yield('slide')
 
+    @yield('thongtinsuutam')
+
     @yield('introvideo')
 
     @yield('khaigiang')

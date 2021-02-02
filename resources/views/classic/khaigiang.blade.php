@@ -100,10 +100,19 @@
             var dd = Math.floor(msec/1000/60/60/24);
             msec -= dd * 1000 * 60 * 60 * 24;
             var hh = Math.floor(msec / 1000 / 60 / 60);
+            if(hh<10) {
+                hh = "0" + hh;
+            }
             msec -= hh * 1000 * 60 * 60;
             var mm = Math.floor(msec / 1000 / 60);
+            if(mm<10) {
+                mm = "0" + mm;
+            }
             msec -= mm * 1000 * 60;
             var ss = Math.floor(msec / 1000);
+            if(ss<10) {
+                ss = "0" + ss;
+            }
             msec -= ss * 1000;
             return [dd,hh,mm,ss];
         };

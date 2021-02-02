@@ -31,6 +31,7 @@ Route::post('tim-kiem', 'SearchController@search')->name('search');
 Route::get('tim-kiem/{keyword}', 'SearchController@result')->name('result');
 Route::get('doi-ngu-can-bo','StaffController@index')->name('staff');
 Route::get('tra-cuu-diem/{post}','PostController@show')->name('tracuudiem');
+Route::get('khao-thi-va-dam-bao-chat-luong','HomeController@index')->name('ktvdbcl');
 
 Route::post('tvts', 'ContactController@tvts')->name('tvts');
 Route::post('lien-he','ContactController@contact')->name('contact');

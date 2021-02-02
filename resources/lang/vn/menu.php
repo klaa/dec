@@ -57,5 +57,6 @@ return [
     'tracuudiem'        => 'Tra cứu điểm',
     'tienich'           => 'Tiện ích',
     'gvgiangday'        => 'Giáo viên giảng dạy',
-    'chuyengiahd'       => 'Chuyên gia hướng dẫn',     
+    'chuyengiahd'       => 'Chuyên gia hướng dẫn',
+    'ktvdbcl'           => 'Khảo thí và ĐBCL',     
 ];

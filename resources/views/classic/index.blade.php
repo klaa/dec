@@ -8,7 +8,11 @@
       {{ session('message') }}
   </div>    
   @endif
-  @include('classic.slide')   
+  @include('classic.news')   
+@endsection
+
+@section('thongtinsuutam')
+  @include('classic.thongtinsuutam')
 @endsection
 
 @section('khaigiang')

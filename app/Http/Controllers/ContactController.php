@@ -18,7 +18,7 @@ class ContactController extends Controller
             'tvtsdiachi'=> 'nullable'
         ]);
         //Send 
-        Mail::to('nguyenkhanh87@gmail.com')->send(new YeuCauTuVan($request->only(['tvtsten','tvtssdt','tvtsnganh','tvtsdiachi'])));
+        Mail::to('khanhnh@tnu.edu.vn')->send(new YeuCauTuVan($request->only(['tvtsten','tvtssdt','tvtsnganh','tvtsdiachi'])));
 
         return redirect()->route('home')->with('message','Cảm ơn bạn quan tâm đến chương trình ! Chúng tôi sẽ trả lời sớm nhất có thể.');
     }
@@ -30,7 +30,7 @@ class ContactController extends Controller
             'message'   => 'required|string',
         ]);
         //Send 
-        Mail::to('nguyenkhanh87@gmail.com')->send(new LienHe($request->only(['name','phone','message'])));
+        Mail::to('khanhnh@tnu.edu.vn')->send(new LienHe($request->only(['name','phone','message'])));
 
         return redirect()->route('contact')->with('message','Cảm ơn bạn liên hệ! Chúng tôi sẽ trả lời sớm nhất có thể.');   
     }

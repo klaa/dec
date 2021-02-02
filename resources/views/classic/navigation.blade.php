@@ -22,9 +22,6 @@
             <li><a class="dropdown-item" href="{{ route('gioithieu','ban-giam-doc') }}">{{ __('menu.bangiamdoc') }}</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('news') }}">{{ __('menu.tintuc') }}</a>
-        </li>
         <li><a class="nav-link" href="{{ route('regulations') }}" class="dropdown-item">{{ __('menu.quychequidinh') }}</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/daotao" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.daotao') }}</a>
@@ -49,6 +46,26 @@
             {{-- <li><a href="#" class="dropdown-item">{{ __('menu.lichkhaigiang') }}</a></li> --}}
             <li><a href="{{ route('tuyensinh','tu-van-tuyen-sinh') }}" class="dropdown-item">{{ __('menu.tuvantuyensinh') }}</a></li>
             <li><a class="dropdown-item" href="{{ route('tuyensinh','huong-dan-hoc-vien') }}">{{ __('menu.huongdanhocvien') }}</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.ktvdbcl') }}</a>
+          <ul class="dropdown-menu bg-md-primary">
+            <li class="dropright">
+              <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('menu.bacongkhai') }}</a>
+              <ul class="dropdown-menu bg-md-primary">
+                  <li><a href="{{ route('bck','co-so-vat-chat') }}" class="dropdown-item">{{ __('menu.cosovatchat') }}</a></li>
+                  <li><a href="{{ route('staff') }}" class="dropdown-item">{{ __('menu.doingucanbo') }}</a></li>
+                  <li class="dropright">
+                      <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">{{ __('menu.doingugiaovien') }}</a>
+                      <ul class="dropdown-menu bg-md-primary">
+                          <li><a href="{{ route('bck','giao-vien-giang-day') }}" class="dropdown-item">{{ __('menu.gvgiangday') }}</a></li>    
+                          <li><a href="{{ route('bck','chuyen-gia-huong-dan') }}" class="dropdown-item">{{ __('menu.chuyengiahd') }}</a></li>    
+                      </ul>
+                  </li>
+              </ul>
+            </li>
           </ul>
         </li>
         
